@@ -66,12 +66,16 @@ module GrapeSwagger
               memo[entity_name][:enum] = entity_options[:values]
             end
           end
+          puts "Parser options: #{entity_options}"
           if entity_options[:documentation] && entity_options[:documentation][:desc]
             memo[entity_name][:description] = entity_options[:documentation][:desc]
           end
           if entity_options[:documentation] && entity_options[:documentation][:example]
             memo[entity_name][:example] = entity_options[:documentation][:example]
           end
+          puts "Memo output: #{memo}"
+          puts "Add in: #{entity_options[:documentation] && entity_options[:documentation][:example]}"
+          puts "Description: #{entity_options[:documentation] && entity_options[:documentation][:desc]}"
         end
       end
 
