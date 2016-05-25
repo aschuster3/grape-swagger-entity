@@ -69,6 +69,9 @@ module GrapeSwagger
           if entity_options[:documentation] && entity_options[:documentation][:desc]
             memo[entity_name][:description] = entity_options[:documentation][:desc]
           end
+          if entity_options[:documentation] && entity_options[:documentation][:example]
+            memo[entity_name][:example] = entity_options[:documentation][:example]
+          end
         end
       end
 
@@ -86,7 +89,7 @@ module GrapeSwagger
           !GrapeSwagger::DocMethods::DataType.primitive?(type.name.downcase) &&
           !type == Array
       end
-      
+
       def entity_model_type(name, entity_options)
         if entity_options[:documentation] && entity_options[:documentation][:is_array]
           {
